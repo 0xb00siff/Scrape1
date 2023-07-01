@@ -1,46 +1,56 @@
 ```python
-# MongoDB Configuration
-MONGODB_SERVER = "localhost"
-MONGODB_PORT = 27017
-MONGODB_DB = "alien_info_db"
+# web_scraper/config.py
 
-# Web Scraping Configuration
-BASE_URLS = {
-    "news": "https://www.example-news.com",
-    "blogs": "https://www.example-blogs.com",
-    "forums": "https://www.example-forums.com",
-    "social_media": "https://www.example-socialmedia.com"
+# Importing required libraries
+from pymongo import MongoClient
+
+# Base URLs to scrape
+BASE_URLS = [
+    "https://www.example1.com",
+    "https://www.example2.com",
+    "https://www.example3.com"
+]
+
+# Pagination settings
+PAGINATION = {
+    "enabled": True,
+    "pages_to_scrape": 10
 }
 
-# Rate Limiting Configuration
-REQUESTS_PER_MINUTE = 10
+# Sleep intervals to prevent getting blocked
+SLEEP_INTERVAL = 5  # in seconds
 
-# Sleep Interval Configuration
-SLEEP_INTERVAL = 5
-
-# Pagination Configuration
-PAGINATION_LIMIT = 10
-
-# Infinite Scroll Configuration
-SCROLL_PAUSE_TIME = 2
-
-# Error Handling Configuration
-ERROR_LOG_PATH = "logs/error.log"
-
-# Automation Configuration
-SCHEDULE = {
-    "hour": 0,
-    "minute": 0,
-    "second": 0
+# MongoDB connection details
+MONGO_DETAILS = {
+    "host": "localhost",
+    "port": 27017,
+    "db_name": "alien_info_db",
+    "collection_name": "alien_info"
 }
 
-# Manual Trigger Configuration
-MANUAL_TRIGGER_PATH = "trigger/manual_trigger.txt"
+# MongoDB client
+MONGO_CLIENT = MongoClient(MONGO_DETAILS["host"], MONGO_DETAILS["port"])
 
-# Update and Maintenance Configuration
-UPDATE_CHECK_INTERVAL = 7  # in days
+# Data schema for MongoDB
+DATA_SCHEMA = {
+    "title": "",
+    "content": "",
+    "date": "",
+    "author": "",
+    "tags": [],
+    "source": "",
+    "type": ""  # text, image, video
+}
 
-# Testing and Deployment Configuration
-TESTING_MODE = True
-DEPLOYMENT_PATH = "/path/to/deployment/directory"
+# Keywords to search for in the content
+KEYWORDS = ["alien", "UFO", "UAP"]
+
+# Log file path
+LOG_FILE_PATH = "web_scraper/logs/log.txt"
+
+# Scheduler settings
+SCHEDULER_SETTINGS = {
+    "enabled": True,
+    "interval": 24  # in hours
+}
 ```

@@ -1,6 +1,6 @@
 ```python
 import logging
-from web_scraper.error_handling.logger import Logger
+from web_scraper.logger import Logger
 
 class ErrorHandler:
     def __init__(self):
@@ -14,4 +14,7 @@ class ErrorHandler:
 
     def handle_warning(self, warning, message):
         self.logger.warning(f"{message}: {str(warning)}")
+
+    def handle_info(self, info, message):
+        self.logger.info(f"{message}: {str(info)}")
 ```

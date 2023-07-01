@@ -1,21 +1,21 @@
 Shared Dependencies:
 
-1. Python Libraries: BeautifulSoup, Selenium, Requests/urllib, and pymongo are shared across multiple files for web scraping, making HTTP requests, and interacting with MongoDB.
+1. Configurations: All the files will share a common configuration file "config.py" which will contain the settings for the web scraper such as base URLs, pagination settings, sleep intervals, MongoDB connection details, etc.
 
-2. Configurations: The "config.py" file will contain shared configurations like base URLs, database connection details, and other global settings. These configurations will be imported and used in multiple files.
+2. Data Schema: The data schema for the scraped data will be shared across the "data_extractor.py", "data_cleaner.py", and "data_storage.py" files. The schema will define the structure of the data to be stored in MongoDB, including fields like title, content, date, author, tags, source, and type.
 
-3. Data Schemas: The data schema for the scraped data (title, content, date, author, tags, source, type) will be shared across the data extraction, data cleaning, and data storage files.
+3. Error Handling: The "error_handler.py" file will contain functions for handling errors during the scraping process. These functions will be used across all the files that perform operations which could potentially fail, such as "scraper.py", "data_extractor.py", "data_cleaner.py", and "data_storage.py".
 
-4. Utility Functions: Functions for handling pagination, infinite scrolling, and pop-ups will be defined in their respective utility files and used in the scraper files. Similarly, the robots_txt_handler will provide a function to check the website's scraping policies, which will be used in all scraper files.
+4. Logging: The "logger.py" file will contain functions for logging actions and errors. These functions will be used across all the files to log their activities and any issues that occur.
 
-5. Error Handling and Logging: The "error_handler.py" and "logger.py" files will provide functions for error handling and logging. These functions will be used across all files to handle exceptions and log actions.
+5. Web Scraping and Data Extraction Functions: The functions for web scraping and data extraction defined in "scraper.py" and "data_extractor.py" will be used in "scheduler.py" and "updater.py" to perform the scraping and extraction tasks.
 
-6. MongoDB Connector: The "mongodb_connector.py" file will provide a connection to the MongoDB database. This connection will be used in the "data_storer.py" file to store the scraped data.
+6. Data Cleaning Functions: The functions for data cleaning defined in "data_cleaner.py" will be used in "scheduler.py" and "updater.py" to clean the extracted data before storage.
 
-7. Efficiency Manager and Rate Limiter: The "efficiency_manager.py" and "rate_limiter.py" files will provide functions to manage the bot's efficiency and rate limit its requests. These functions will be used in the scraper files.
+7. Data Storage Functions: The functions for storing data defined in "data_storage.py" will be used in "scheduler.py" and "updater.py" to store the cleaned and structured data in MongoDB.
 
-8. Scheduler and Manual Trigger: The "scheduler.py" and "manual_trigger.py" files will provide functions to automate and manually trigger the bot. These functions will be used in the "main.py" file to control the bot's operation.
+8. Test Functions: The test functions defined in the "tests" directory will be used in "deployment.py" to ensure the bot is functioning as expected before deployment.
 
-9. Update Manager: The "update_manager.py" file will provide functions for updating and maintaining the bot. These functions will be used in the "main.py" file and potentially in other files as needed.
+9. Scheduler Functions: The functions for scheduling and triggering the bot defined in "scheduler.py" will be used in "deployment.py" to automate the scraping process.
 
-10. Testing and Deployment: The "testing.py" and "deployment.py" files will provide functions for testing the bot and deploying it in a production environment. These functions will be used in the "main.py" file and potentially in other files as needed.
+10. Updater Functions: The functions for updating the bot defined in "updater.py" will be used in "deployment.py" to maintain the bot over time.

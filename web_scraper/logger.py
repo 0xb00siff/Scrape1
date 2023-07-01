@@ -1,5 +1,6 @@
 ```python
 import logging
+import os
 
 # Create a custom logger
 logger = logging.getLogger(__name__)
@@ -20,12 +21,12 @@ f_handler.setFormatter(f_format)
 logger.addHandler(c_handler)
 logger.addHandler(f_handler)
 
-def log_info(message):
-    logger.info(message)
+def log_error(error):
+    logger.error(error)
 
-def log_warning(message):
-    logger.warning(message)
+def log_info(info):
+    logger.info(info)
 
-def log_error(message):
-    logger.error(message)
+def log_warning(warning):
+    logger.warning(warning)
 ```
