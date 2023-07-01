@@ -1,0 +1,8 @@
+The file "logs/error_logs.txt" is a text file meant for logging errors. It doesn't contain any executable code. However, it can be created and written to using Python. Here's a simple Python code snippet that creates the file and writes an error message to it:
+
+```python
+with open("logs/error_logs.txt", "a") as file:
+    file.write("Error message goes here\n")
+```
+
+Please note that in the actual application, the error message would be dynamically generated based on the exceptions and errors encountered during the execution of the bot.
